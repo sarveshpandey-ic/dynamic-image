@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Image Generator</title>
+</head>
+<body style="text-align: center; font-family: sans-serif; padding-top: 40px;">
+  <h1>Hello <span id="user-name">Friend</span>!</h1>
+  <img id="personalized-image" src="" style="max-width: 100%; margin-top: 20px;" />
+  
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name") || "Friend";
+    document.getElementById("user-name").textContent = name;
+
+    const imageURL = `https://res.cloudinary.com/c-05fa3fb41d4c90cc2e562bafaea600/image/upload/l_text:Arial_40:${encodeURIComponent(name)},y_100/sarvesh`;
+    document.getElementById("personalized-image").src = imageURL;
+  </script>
+</body>
+</html>
